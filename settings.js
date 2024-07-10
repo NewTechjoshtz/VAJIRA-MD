@@ -1,76 +1,49 @@
 const fs = require('fs');
-const chalk = require('chalk');
-
-// Website Api
-global.APIs = {
-    xfarr: 'https://api.xfarr.com',
-};
-
-// Apikey Website Api
-global.APIKeys = {
-    'https://api.xfarr.com': 'Uc3LRsLE2d',
-};
-
-// Set your URL and API key here
-global.APIs = {
-    xfarr: {
-        baseURL: 'https://api.xfarr.com',
-        Key: 'Uc3LRsLE2d'
-    }
-};
- 
-
-// Other
-global.apikey = 'bf2d2cf29b3edc604b447983';
-global.ownername = 'ᴠᴀᴊɪʀᴀ ʀᴀᴛʜɴᴀʏᴀᴋᴀ';
-global.owner = ['94719199757','94703475691'];
-global.premium = ['94719199757','94703475691'];
-global.packname = '𝚜𝚝𝚒𝚌𝚔𝚎𝚛 𝚋𝚢';
-global.author = '𝙑𝘼𝙅𝙄𝙍𝘼 𝙈𝘿';
-global.caption = ' 👨‍💻 ＶＡＪＩＲＡ ＭＤ V3 👨‍💻';
-global.sessionName = 'session';
-global.prefa = ['!', '.'];
-global.sp = '✪';
-global.mess = {
-    banned: '`You are *Banned* fron using commands!`',
-    bangc: '`This Group is *Banned* from using Commands!`',
-    success: '`✓ Success`',
-    admin: '`This feature is only for group admins`',
-    botAdmin: '`I am not an admin!`',
-    owner: '`You are not my owner`',
-    group: '`You can use this command only in groups ❌`',
-    private: '`Feature is used only for private chats!`',
-    bot: '`Bot number user special features`',
-    wait: '*Processing Your request*',
-    endLimit: '`Your daily limit has expired, the limit will be reset every 12 hours`',
-};
-global.link = 'https://youtube.com/@gamingewingyt6216?si=IHmBhi2R69ao6jcG'
-global.linkGroup = 'https://chat.whatsapp.com/JNAASTo0fMo3N4luk8arve'  
-global.logo = process.env.LOGO || "https://telegra.ph/file/bb92c9c4e66b6b6045feb.jpg",        
-global.ANTI_BOT = process.env.ANTI_BOT || "false",        
-global.typemenu = 'v1' // 'v1' => 'v5'
-global.onlygroup = false // onlygroup
-global.onlypc = false
-global.AUTO_ABOUT = false
-global.limitawal = {
-    premium: 'Infinity',
-    free: 10
-};
-
-// Add anticall option
-global.config = {
-    options: {
-        antiCall: true, // Set to true for anticall functionality, false otherwise
-    },
-};
-
-// Ensure config object is defined before using it
-if (config && config.options && config.options.antiCall) {
-    let file = require.resolve(__filename);
-    fs.watchFile(file, () => {
-        fs.unwatchFile(file);
-        console.log(chalk.redBright(`Update'${__filename}'`));
-        delete require.cache[file];
-        require(file);
-    });
+if (fs.existsSync('config.env')) require('dotenv').config({ path: './config.env' });
+function convertToBool(text, fault = 'true') {
+    return text === fault ? true : false;
 }
+
+
+global.thumb = fs.readFileSync('./lib/bugs/venom.jpg')
+const BOTNAME = 'VAJIRA-MD|-WA-BOT™';
+const FOOTERNAME = '> ＶＡＪＩＲＡ -  ＭＤ - Ｖ4';
+global.owner = process.env.OWNER_NUMBER  || '94701992015' ;  // ADD YOUR NUMBER WITHOUT +
+    
+module.exports = {
+SESSION_ID: process.env.SESSION_ID || 'youre session id' ,
+travaSend: process.env.TRAVA_SEND || '25' ,   
+MODERATORS : process.env.MODERATORS === undefined ? "94772801923,94787820101" : process.env.MODERATORS ,    
+MAX_SIZE: process.env.MAX_SIZE === undefined ? '1536': process.env.MAX_SIZE,/*add this in megabytes*/    
+OWNER_NAME: process.env.OWNER_NAME || 'VAJIRA' ,
+COMMAND_TYPE: process.env.COMMAND_TYPE || 'button' ,
+LOGO: process.env.LOGO || `https://telegra.ph/file/ab0ea6ad90e2eb98090d9.jpg` ,
+POSTGRESQL_URL: process.env.POSTGRESQL_URL === undefined ? 'postgres://vajiratech_user:oSIFl2xmSojMZ0rkzdd0g0W6msuVTpNN@dpg-cpd7fjv109ks73e5gtig-a.frankfurt-postgres.render.com/vajiratech' : process.env.POSTGRESQL_URL,
+FOOTER: process.env.FOOTER || '‌👨‍💻 ＶＡＪＩＲＡ -  ＭＤ - Ｖ5 👨‍💻',    
+PREFIX: process.env.PREFIX || '.' ,
+LANG:  process.env.LANG || 'SI' ,
+ANTI_BAD: process.env.ANTI_BAD || false  ,
+AUTO_REACT:  process.env.AUTO_REACT  || false  ,    
+AUTO_TYPING:  process.env.AUTO_TYPING  || false  ,
+AUTO_RECORDING:  process.env.AUTO_RECORDING  || false  ,
+AUTO_READ:  process.env.AUTO_READ  || false  ,
+AUTO_BIO:  process.env.AUTO_BIO  || false  ,       
+ALWAYS_ONLINE:  process.env.ALWAYS_ONLINE  || false  ,
+WORK_TYPE: process.env.WORK_TYPE || 'private' ,
+HEROKU_API_KEY: process.env.HEROKU_API_KEY === undefined ? '' : process.env.HEROKU_API_KEY,    
+HEROKU_APP_NAME: process.env.HEROKU_APP_NAME === undefined ? '' : process.env.HEROKU_APP_NAME,        
+INBOX_USER: process.env.INBOX_USER === undefined ? '' : process.env.INBOX_USER,
+BANNED_USER: process.env.BANNED_USER === undefined ? '' : process.env.BANNED_USER ,    
+AI_MODE: process.env.AI_MODE === undefined ? 'true' : process.env.AI_MODE,
+ANTI_LINK: process.env.ANTI_LINK || false  ,
+BOT_DETECT: process.env.BOT_DETECT === undefined ? 'false' : process.env.BOT_DETECT,    
+ANTI_BOT: process.env.ANTI_BOT || false  ,
+ANTI_CALL: process.env.ANTI_CALL || false  ,
+ALIVE: process.env.ALIVE || `default`,     
+AUTO_STATUS_READ:  process.env.AUTO_STATUS_READ  || false  ,    
+AUTO_VOICE:  process.env.AUTO_VOICE  || false  ,
+AUTO_STICKER: process.env.AUTO_STICKER || false  ,
+WELCOME:  process.env.WELCOME  || false ,
+ANTI_DELETE : process.env.ANTI_DELETE || false ,
+DELETEMSGSENDTO : process.env.DELETEMSGSENDTO === undefined ? '' : process.env.DELETEMSGSENDTO    
+};
